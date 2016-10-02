@@ -1,6 +1,6 @@
 {
-  "name": "yelpv3",
-  "version": "1.0.1",
+  "name": "yelp-api-v3",
+  "version": "1.0.0",
   "description": "Library to query Yelp's v3 API",
   "main": "index.js",
   "scripts": {
@@ -8,19 +8,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/danieljin/yelpv3.git"
+    "url": "git+https://github.com/kristenlk/yelp-api-v3.git"
   },
   "keywords": [
     "yelp",
     "v3",
     "api"
   ],
-  "author": "Daniel Jin",
+  "author": "Kristen Kehlenbeck",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/danieljin/yelpv3/issues"
+    "url": "https://github.com/kristenlk/yelp-api-v3/issues"
   },
-  "homepage": "https://github.com/danieljin/yelpv3#readme",
+  "homepage": "https://github.com/kristenlk/yelp-api-v3#readme",
   "dependencies": {
     "request": "^2.74.0"
   }

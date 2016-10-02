@@ -5,7 +5,7 @@ yelpv3 is a node module for accessing yelp's v3 API.
 
 ## Installation
 ```javascript
-npm install --save yelpv3
+npm install --save yelp-api-v3
 ```
 
 ## Usage
@@ -20,7 +20,7 @@ var yelp = new Yelp({
 });
 
 // https://github.com/Yelp/yelp-api-v3/blob/master/docs/api-references/businesses-search.md
-yelp.search({term: 'food', location: '90210', limit: 10})
+yelp.search({term: 'food', location: '90210', price: '1,2,3', limit: 10})
 .then(function (data) {
     console.log(data);
 })
