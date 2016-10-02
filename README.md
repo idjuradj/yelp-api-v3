@@ -1,6 +1,6 @@
-# yelpv3
+# yelp-api-v3
 
-yelpv3 is a node module for accessing yelp's v3 API.
+yelp-api-v3 is a node module for accessing yelp's v3 API.
   - Inspired by https://github.com/olalonde/node-yelp and https://github.com/elbuo8/4square
 
 ## Installation
@@ -12,7 +12,7 @@ npm install --save yelp-api-v3
 View [yelp's guide](https://github.com/Yelp/yelp-api-v3/blob/master/docs/tutorials/get-start-yelp-api-v3.md) for how to obtain an app id and app secret
 
 ```javascript
-var Yelp = require('yelpv3');
+var Yelp = require('yelp-api-v3');
 
 var yelp = new Yelp({
   app_id: '************',
