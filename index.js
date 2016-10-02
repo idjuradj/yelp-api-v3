@@ -22,6 +22,10 @@ class Yelpv3 {
           grant_type: 'client_credentials'
         }
       }, (err, response, data) => {
+        console.log("ERROR:");
+        console.log(err);
+        console.log("DATA:");
+        console.log(data);
         if (!err && response.statusCode == 200) {
           this.accessToken = JSON.parse(data).access_token;
           resolve(data);
@@ -45,17 +49,25 @@ class Yelpv3 {
 
     const promise = new Promise((resolve, reject) => {
       if (this.accessToken) {
+        console.log("THIS.ACCESSTOKEN");
+        console.log(this.accessToken);
         request.get({
           url: baseUrl + resource + jsonToQueryString(params),
           headers: {
             'Authorization': 'Bearer ' + this.accessToken
           }
         }, (err, response, data) => {
+          console.log("ERROR:");
+          console.log(err);
+          console.log("DATA:");
+          console.log(data);
           if (!err && response.statusCode == 200) {
             resolve(data);
           }
         });
       } else {
+        console.log("THIS.ACCESSTOKEN");
+        console.log(this.accessToken);
         this.getAccessToken().then((data) => {
           request.get({
             url: baseUrl + resource + jsonToQueryString(params),
@@ -63,6 +75,10 @@ class Yelpv3 {
               'Authorization': 'Bearer ' + this.accessToken
             }
           }, (err, response, data) => {
+            console.log("ERROR:");
+            console.log(err);
+            console.log("DATA:");
+            console.log(data);
             if (!err && response.statusCode == 200) {
               resolve(data);
             }
