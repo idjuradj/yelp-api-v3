@@ -15,9 +15,9 @@ class Yelpv3 {
   getAccessToken(cb) {
     const promise = new Promise((resolve, reject) => {
       console.log("first 3 characters of appId:");
-      console.log(str.substring(0, 2));
+      console.log(this.appId.substring(0, 2));
       console.log("first 3 characters of appSecret:");
-      console.log(str.substring(0, 2));
+      console.log(this.appSecret.substring(0, 2));
       request.post({
         url: 'https://api.yelp.com/oauth2/token',
         form: {
