@@ -14,10 +14,6 @@ class Yelpv3 {
 
   getAccessToken(cb) {
     const promise = new Promise((resolve, reject) => {
-      console.log("first 3 characters of appId:");
-      console.log(this.appId.substring(0, 2));
-      console.log("first 3 characters of appSecret:");
-      console.log(this.appSecret.substring(0, 2));
       request.post({
         url: 'https://api.yelp.com/oauth2/token',
         form: {
@@ -26,12 +22,6 @@ class Yelpv3 {
           grant_type: 'client_credentials'
         }
       }, (err, response, data) => {
-        console.log("ERROR 1:");
-        console.log(err);
-        console.log("DATA 1:");
-        console.log(data);
-        console.log("RESPONSE 1:");
-        console.log(response);
         if (!err && response.statusCode == 200) {
           this.accessToken = JSON.parse(data).access_token;
           resolve(data);
@@ -55,27 +45,17 @@ class Yelpv3 {
 
     const promise = new Promise((resolve, reject) => {
       if (this.accessToken) {
-        console.log("THIS.ACCESSTOKEN");
-        console.log(this.accessToken);
         request.get({
           url: baseUrl + resource + jsonToQueryString(params),
           headers: {
             'Authorization': 'Bearer ' + this.accessToken
           }
         }, (err, response, data) => {
-          console.log("ERROR 2:");
-          console.log(err);
-          console.log("DATA 2:");
-          console.log(data);
-          console.log("RESPONSE 2:");
-          console.log(response);
           if (!err && response.statusCode == 200) {
             resolve(data);
           }
         });
       } else {
-        console.log("THIS.ACCESSTOKEN");
-        console.log(this.accessToken);
         this.getAccessToken().then((data) => {
           request.get({
             url: baseUrl + resource + jsonToQueryString(params),
@@ -83,12 +63,6 @@ class Yelpv3 {
               'Authorization': 'Bearer ' + this.accessToken
             }
           }, (err, response, data) => {
-            console.log("ERROR 3:");
-            console.log(err);
-            console.log("DATA 3:");
-            console.log(data);
-            console.log("RESPONSE 3:");
-            console.log(response);
             if (!err && response.statusCode == 200) {
               resolve(data);
             }
